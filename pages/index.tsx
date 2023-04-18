@@ -3,13 +3,13 @@ import Head from "next/head";
 import { sanityClient, urlFor } from "../sanity";
 import { Post } from "@/typings";
 import Link from "next/link";
+import Image from "next/image";
 
 interface Props {
   posts: [Post];
 }
 
 export default function Home({ posts }: Props) {
-  console.log(posts[0].mainImage.asset);
   return (
     <div className="max-w-7xl mx-auto">
       <Head>
@@ -32,10 +32,12 @@ export default function Home({ posts }: Props) {
             with millions of readers.
           </h2>
         </div>
-        <img
-          className="hidden md:inline-flex h-32 lg:h-full"
-          src="https://accountabilitylab.org/wp-content/uploads/2020/03/Medium-logo.png"
+        <Image
+          className="hidden md:inline-flex h-32 w-auto lg:h-full"
+          src="/img/medium-logo.png"
           alt="Medium Logo"
+          width={1000}
+          height={1000}
         />
       </div>
 
@@ -44,9 +46,12 @@ export default function Home({ posts }: Props) {
         {posts.map((post) => (
           <Link key={post._id} href={`/post/${post.slug.current}`}>
             <div className="border rounded-lg group cursor-pointer overflow-hidden">
-              <img
+              <Image
                 className="h-60 w-full object-cover  group-hover:scale-105 transition-transform duration-200 ease-in-out"
                 src={urlFor(post.mainImage.asset).url()!}
+                width={1000}
+                height={1000}
+                alt={" Image Post"}
               />
               <div className=" flex justify-between p-5 bg-white">
                 <div>
@@ -55,9 +60,12 @@ export default function Home({ posts }: Props) {
                     {post.description} by {post.author.name}
                   </p>
                 </div>
-                <img
+                <Image
                   className=" h-12 w-12 rounded-full"
                   src={urlFor(post.author.image).url()!}
+                  width={1000}
+                  height={1000}
+                  alt={" Image Post"}
                 />
               </div>
             </div>

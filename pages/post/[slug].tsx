@@ -7,6 +7,7 @@ import PortableText from "react-portable-text";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { error } from "console";
 import { useState } from "react";
+import Image from "next/image";
 
 interface IFormInput {
   _id: string;
@@ -23,7 +24,7 @@ function Post({ post }: Props) {
   const [submitted, setSubmitted] = useState(false);
 
   const { comments } = post;
-  console.log(comments);
+
   const {
     register,
     handleSubmit,
@@ -48,9 +49,12 @@ function Post({ post }: Props) {
     <main className="mx-auto">
       <Header />
 
-      <img
+      <Image
         className=" w-full h-40 object-cover"
         src={urlFor(post.mainImage.asset).url()!}
+        width={1000}
+        height={1000}
+        alt={" Image Post"}
       />
 
       <article className=" max-w-3xl mx-auto p-5">
@@ -59,9 +63,12 @@ function Post({ post }: Props) {
           {post.description}
         </h2>
         <div className="flex space-x-2 items-center">
-          <img
+          <Image
             className="h-10 w-10 rounded-full"
             src={urlFor(post.author.image).url()!}
+            width={1000}
+            height={1000}
+            alt={" Image Post"}
           />
           <p className=" font-extralight">
             Blog post by{" "}
@@ -171,11 +178,12 @@ function Post({ post }: Props) {
       {/* Comments */}
       <div className="flex flex-col p-10 my-10 max-w-2xl mx-auto shadow-yellow-500 shadow space-y-2">
         <h3 className="text-4xl">Comments</h3>
-        <hr  className="pb-2"/>
+        <hr className="pb-2" />
         {comments.map((comment) => (
           <div key={comment._id}>
             <p>
-              <span className=" text-yellow-500">{comment.name} :</span> {comment.comment}
+              <span className=" text-yellow-500">{comment.name} :</span>{" "}
+              {comment.comment}
             </p>
           </div>
         ))}

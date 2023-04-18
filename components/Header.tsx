@@ -7,10 +7,13 @@ function Header() {
       <div className="flex items-center ">
         <div>
           <Link href={"/"}>
-            <img
+            <Image
               className=" w-40 object-contain cursor-pointer"
-              src={"https://links.papareact.com/yvf"}
+              src={"/img/logo.png"}
               alt="Logo"
+              width={1000}
+              height={1000}
+
             />
           </Link>
         </div>
