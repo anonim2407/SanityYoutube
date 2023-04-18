@@ -19,8 +19,7 @@
 .DS_Store
 *.pem
 
-# sanity 
-sanityyoutube/node_modules
+
 
 # debug
 npm-debug.log*
