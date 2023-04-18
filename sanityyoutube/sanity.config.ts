@@ -6,6 +6,7 @@ import {schemaTypes} from './schemas'
 export default defineConfig({
   name: 'default',
   title: 'sanityyoutube',
+  basePath: '/sanityadmin',
 
   projectId: '0ddfdvy1',
   dataset: 'production',
