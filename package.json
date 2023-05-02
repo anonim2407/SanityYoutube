@@ -26,6 +26,7 @@
     "react-dom": "18.2.0",
     "react-hook-form": "^7.43.9",
     "react-portable-text": "^0.6.0",
+    "styled-components": "^5.3.10",
     "tailwindcss": "3.3.1",
     "typescript": "5.0.4"
   },
